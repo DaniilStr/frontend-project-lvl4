@@ -109,6 +109,7 @@ const Channels = () => {
           active
           className="p-0 text-primary"
           onClick={handleAddChannel}
+          name="+"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -66,7 +66,6 @@ const AddChannelForm = ({ onHide }) => {
                 variant="secondary"
                 onClick={onHide}
                 disabled={isSubmitting}
-                name="+"
               >
                 {t('buttons.cancel')}
               </Button>
