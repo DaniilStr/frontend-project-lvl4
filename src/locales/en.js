@@ -5,6 +5,12 @@ export default {
       password: 'Password',
       confirmPassword: 'Confirm password',
       username: 'Username',
+      newMassage: 'New massage',
+      channelName: 'Channel name',
+      newChannelName: 'New channel name',
+      channelManagement: 'Channel management',
+      rename: 'Rename',
+      remove: 'Remove',
     },
     buttons: {
       signUp: 'Sign up',

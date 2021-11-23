@@ -47,7 +47,7 @@ const AddChannelForm = ({ onHide }) => {
           <Form.Group>
             <Form.Control
               name="name"
-              aria-label="Add channel"
+              aria-label={t('labels.channelName')}
               data-testid="add-channel"
               className="mb-2"
               onChange={handleChange}

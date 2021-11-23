@@ -43,10 +43,11 @@ const RemovableChannel = ({
       variant={buttonVariant}
       className="flex-grow-0"
       data-testid="channel-dropdown"
+      aria-label={t('labels.channelManagement')}
     />
     <Dropdown.Menu data-testid="channel-dropdown-menu">
-      <Dropdown.Item onClick={onRemove}>{t('buttons.remove')}</Dropdown.Item>
-      <Dropdown.Item onClick={onRename}>{t('buttons.rename')}</Dropdown.Item>
+      <Dropdown.Item onClick={onRemove} aria-label={t('labels.remove')}>{t('buttons.remove')}</Dropdown.Item>
+      <Dropdown.Item onClick={onRename} aria-label={t('labels.rename')}>{t('buttons.rename')}</Dropdown.Item>
     </Dropdown.Menu>
   </Dropdown>
 );

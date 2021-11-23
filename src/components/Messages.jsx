@@ -5,8 +5,6 @@ import {
 } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { useFormik } from 'formik';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 
 import { useSocket } from '../hooks/index.js';
 
@@ -66,7 +64,6 @@ const NewMessageForm = () => {
   const socket = useSocket();
 
   const { t } = useTranslation();
-  const notify = () => toast(t('texts.newMassage'));
 
   const formik = useFormik({
     initialValues: {
@@ -74,7 +71,6 @@ const NewMessageForm = () => {
     },
     onSubmit: ({ body }, { resetForm, setSubmitting }) => {
       setSubmitting(true);
-      notify();
       const message = {
         body,
         channelId: currentChannelId,
@@ -105,7 +101,7 @@ const NewMessageForm = () => {
         <InputGroup className="has-validation">
           <Form.Control
             name="body"
-            aria-label="body"
+            aria-label={t('labels.newMassage')}
             data-testid="new-message"
             onChange={formik.handleChange}
             value={formik.values.body}
@@ -145,7 +141,6 @@ const NewMessageForm = () => {
 
 const Messages = () => (
   <Col className="h-100 p-0">
-    <ToastContainer />
     <div className="d-flex flex-column h-100">
       <MessagesBoxHeader />
       <MessagesBox />

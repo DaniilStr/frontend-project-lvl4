@@ -5,6 +5,12 @@ export default {
       password: 'Пароль',
       confirmPassword: 'Подтвердите пароль',
       username: 'Имя пользователя',
+      newMassage: 'Новое сообщение',
+      channelName: 'Имя канала',
+      newChannelName: 'Новое имя канала',
+      channelManagement: 'Управление каналом',
+      rename: 'Переименовать',
+      remove: 'Удалить',
     },
     buttons: {
       signUp: 'Зарегистрироваться',
@@ -47,7 +53,6 @@ export default {
       amountOfMassages_0: '{{count}} сообщение',
       amountOfMassages_1: '{{count}} сообщения',
       amountOfMassages_2: '{{count}} сообщений',
-      newMassage: 'Новое сообщение',
     },
   },
 };

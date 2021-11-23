@@ -49,7 +49,7 @@ const RenameChannelForm = ({ onHide }) => {
           <Form.Group>
             <Form.Control
               name="name"
-              aria-label="Rename channel"
+              aria-label={t('labels.newChannelName')}
               data-testid="rename-channel"
               className="mb-2"
               onChange={handleChange}
