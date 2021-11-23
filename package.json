@@ -36,6 +36,7 @@
     "formik": "^2.2.9",
     "http-errors": "^1.8.0",
     "i18next": "^20.4.0",
+    "leo-profanity": "^1.5.0",
     "lodash": "^4.17.21",
     "mini-css-extract-plugin": "^2.4.3",
     "pino-pretty": "^4.8.0",

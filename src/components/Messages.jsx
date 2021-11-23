@@ -5,6 +5,7 @@ import {
 } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { useFormik } from 'formik';
+import filter from 'leo-profanity';
 
 import { useSocket } from '../hooks/index.js';
 
@@ -71,8 +72,9 @@ const NewMessageForm = () => {
     },
     onSubmit: ({ body }, { resetForm, setSubmitting }) => {
       setSubmitting(true);
+      const censured = filter.clean(body);
       const message = {
-        body,
+        body: censured,
         channelId: currentChannelId,
         username: getUsername(),
       };
