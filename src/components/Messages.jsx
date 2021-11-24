@@ -30,7 +30,7 @@ const MessagesBoxHeader = () => {
       <p className="m-0">
         <b>
           #
-          {channelName}
+          {' '.concat(channelName)}
         </b>
       </p>
       <span className="text-muted">

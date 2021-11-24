@@ -48,7 +48,6 @@ const AddChannelForm = ({ onHide }) => {
             <Form.Control
               name="name"
               aria-label={t('labels.channelName')}
-              data-testid="add-channel"
               className="mb-2"
               onChange={handleChange}
               value={values.name}
@@ -59,7 +58,7 @@ const AddChannelForm = ({ onHide }) => {
             <Form.Control.Feedback type="invalid">
               {t(`${errors.name}`)}
             </Form.Control.Feedback>
-            <div className="d-flex justify-content-end pt-2">
+            <div className="d-flex justify-content-end">
               <Button
                 type="button"
                 className="me-2"
