@@ -72,7 +72,7 @@ const App = ({ socket }) => {
     <AuthProvider>
       <socketContext.Provider value={socket}>
         <Router>
-          <div className="d-flex flex-column h-100">
+          <div id="chat2" className="d-flex flex-column h-100">
             <AppNavbar />
             <Switch>
               <PrivateRoute exact path="/">
