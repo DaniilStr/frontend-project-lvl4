@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import {
@@ -56,6 +56,17 @@ const Channels = () => {
   const { channels, currentChannelId } = useSelector(
     (state) => state.channelsInfo,
   );
+  const { isOpen } = useSelector((state) => state.modal);
+  console.log('isOpen', isOpen);
+  const container = document.getElementById('chat');
+
+  useEffect(() => {
+    if (isOpen) {
+      container.setAttribute('aria-hidden', 'true');
+    }
+    return () => container.removeAttribute('aria-hidden');
+  }, [isOpen]);
+
   const dispatch = useDispatch();
 
   const { t } = useTranslation();
