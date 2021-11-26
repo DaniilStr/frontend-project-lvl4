@@ -52,6 +52,9 @@ export default {
       pleasewait: 'Please wait...',
       amountOfMassages: '{{count}} massage',
       amountOfMassages_plural: '{{count}} massages',
+      channelСreated: 'Channel created',
+      channelRemoved: 'Channel removed',
+      channelRenamed: 'Channel Renamed',
     },
   },
 };

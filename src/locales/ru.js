@@ -54,7 +54,7 @@ export default {
       amountOfMassages_1: '{{count}} сообщения',
       amountOfMassages_2: '{{count}} сообщений',
       channelСreated: 'Канал создан',
-      channelRemoved: 'Канал удален',
+      channelRemoved: 'Канал удалён',
       channelRenamed: 'Канал переименован',
     },
   },
