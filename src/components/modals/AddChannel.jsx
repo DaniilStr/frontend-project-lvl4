@@ -9,7 +9,7 @@ import { Formik } from 'formik';
 import { useSocket } from '../../hooks/index.js';
 import { channelSchema } from '../../validationSchemas.js';
 
-const AddChannelForm = ({ onHide }) => {
+const AddChannelForm = ({ onHide, toast }) => {
   const { channels } = useSelector((state) => state.channelsInfo);
   const channelsNames = channels.map(({ name }) => name);
   const { t } = useTranslation();
@@ -36,6 +36,7 @@ const AddChannelForm = ({ onHide }) => {
             setSubmitting(false);
           }
         });
+        toast.success(t('texts.channelСreated'));
       }}
       validateOnChange={false}
       validateOnBlur={false}
@@ -82,7 +83,7 @@ const AddChannelForm = ({ onHide }) => {
   );
 };
 
-const AddChannel = ({ onExited }) => {
+const AddChannel = ({ onExited, toast }) => {
   const [show, setShow] = useState(true);
 
   const onHide = () => {
@@ -97,7 +98,7 @@ const AddChannel = ({ onExited }) => {
         <Modal.Title>{t('texts.addChannel')}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <AddChannelForm onHide={onHide} />
+        <AddChannelForm onHide={onHide} toast={toast} />
       </Modal.Body>
     </Modal>
   );

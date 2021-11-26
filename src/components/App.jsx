@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { toast, ToastContainer } from 'react-toastify';
 import { authContext, socketContext } from '../contexts/index.js';
 import Login from './Login.jsx';
 import NotFound from './NotFound.jsx';
@@ -16,6 +17,7 @@ import AppNavbar from './AppNavbar.jsx';
 import { useAuth } from '../hooks/index.js';
 import { closeModal } from '../slices/modalSlice.js';
 import getModal from './modals/index.js';
+import 'react-toastify/dist/ReactToastify.css';
 
 const renderModal = (type, onExited) => {
   if (!type) {
@@ -24,7 +26,7 @@ const renderModal = (type, onExited) => {
 
   const Modal = getModal(type);
 
-  return <Modal onExited={onExited} />;
+  return <Modal onExited={onExited} toast={toast} />;
 };
 
 const AuthProvider = ({ children }) => {
@@ -90,6 +92,7 @@ const App = ({ socket }) => {
             </Switch>
           </div>
           {renderModal(type, onModalExited)}
+          <ToastContainer />
         </Router>
       </socketContext.Provider>
     </AuthProvider>

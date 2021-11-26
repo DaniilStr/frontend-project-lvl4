@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 import { useSocket } from '../../hooks/index.js';
 
-const RemoveChannel = ({ onExited }) => {
+const RemoveChannel = ({ onExited, toast }) => {
   const [show, setShow] = useState(true);
   const [pending, setPending] = useState(false);
   const { t } = useTranslation();
@@ -26,6 +26,7 @@ const RemoveChannel = ({ onExited }) => {
         onHide();
       }
     });
+    toast.success(t('texts.channelRemoved'));
   };
 
   return (

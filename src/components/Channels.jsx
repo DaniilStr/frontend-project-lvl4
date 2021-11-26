@@ -57,7 +57,6 @@ const Channels = () => {
     (state) => state.channelsInfo,
   );
   const { isOpen } = useSelector((state) => state.modal);
-  console.log('isOpen', isOpen);
   const container = document.getElementById('chat2');
 
   useEffect(() => {

@@ -9,7 +9,7 @@ import { Formik } from 'formik';
 import { useSocket } from '../../hooks/index.js';
 import { channelSchema } from '../../validationSchemas.js';
 
-const RenameChannelForm = ({ onHide }) => {
+const RenameChannelForm = ({ onHide, toast }) => {
   const { channelId, name } = useSelector((state) => state.modal.extra);
   const { channels } = useSelector((state) => state.channelsInfo);
   const channelsNames = channels.map(({ name: channelName }) => channelName);
@@ -38,6 +38,7 @@ const RenameChannelForm = ({ onHide }) => {
             onHide();
           }
         });
+        toast.success(t('texts.channelRenamed'));
       }}
       validateOnChange={false}
       validateOnBlur={false}
@@ -89,7 +90,7 @@ const RenameChannelForm = ({ onHide }) => {
   );
 };
 
-const RenameChannel = ({ onExited }) => {
+const RenameChannel = ({ onExited, toast }) => {
   const [show, setShow] = useState(true);
   const { t } = useTranslation();
 
@@ -103,7 +104,7 @@ const RenameChannel = ({ onExited }) => {
         <Modal.Title>{t('texts.renameChannel')}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <RenameChannelForm onHide={onHide} />
+        <RenameChannelForm onHide={onHide} toast={toast} />
       </Modal.Body>
     </Modal>
   );
