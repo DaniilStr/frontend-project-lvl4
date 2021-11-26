@@ -13,7 +13,7 @@ import { useAuth } from '../hooks/index.js';
 import routes from '../routes.js';
 import FormContainer from './FormContainer.jsx';
 
-const Login = () => {
+const Login = ({ toast }) => {
   const [error, setError] = useState(null);
   const { t } = useTranslation();
   const history = useHistory();
@@ -63,6 +63,7 @@ const Login = () => {
                   usernameRef.current.select();
                 } else if (e.isAxiosError && e.message === 'Network Error') {
                   setError('netError');
+                  toast.warning(t(`errors.${error}`));
                 } else {
                   setError('unknown');
                   console.error(e);

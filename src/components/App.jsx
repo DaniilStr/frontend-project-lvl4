@@ -81,7 +81,7 @@ const App = ({ socket }) => {
                 <Chat />
               </PrivateRoute>
               <Route path="/login">
-                <Login />
+                <Login toast={toast} />
               </Route>
               <Route path="/signup">
                 <SignUp />
