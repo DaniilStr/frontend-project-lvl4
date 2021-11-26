@@ -63,7 +63,7 @@ const Login = ({ toast }) => {
                   usernameRef.current.select();
                 } else if (e.isAxiosError && e.message === 'Network Error') {
                   setError('netError');
-                  toast.warning(t(`errors.${error}`));
+                  toast.warn(t(`errors.${error}`));
                 } else {
                   setError('unknown');
                   console.error(e);
