@@ -13,7 +13,7 @@ import Login from './Login.jsx';
 import NotFound from './NotFound.jsx';
 import Chat from './Chat.jsx';
 import SignUp from './SignUp.jsx';
-import AppNavbar from './AppNavbar.jsx';
+import Navbar from './Navbar.jsx';
 import { useAuth } from '../hooks/index.js';
 import { closeModal } from '../slices/modalSlice.js';
 import getModal from './modals/index.js';
@@ -75,7 +75,7 @@ const App = ({ socket }) => {
       <socketContext.Provider value={socket}>
         <Router>
           <div id="chat2" className="d-flex flex-column h-100">
-            <AppNavbar />
+            <Navbar />
             <Switch>
               <PrivateRoute exact path="/">
                 <Chat />

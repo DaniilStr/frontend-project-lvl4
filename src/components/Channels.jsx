@@ -60,9 +60,10 @@ const Channels = () => {
   const container = document.getElementById('chat2');
 
   useEffect(() => {
-    if (isOpen) {
-      container.setAttribute('aria-hidden', 'true');
+    if (!isOpen) {
+      return null;
     }
+    container.setAttribute('aria-hidden', 'true');
     return () => container.removeAttribute('aria-hidden');
   }, [isOpen]);
 
