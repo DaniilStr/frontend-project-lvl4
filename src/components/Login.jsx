@@ -55,15 +55,19 @@ const Login = ({ toast }) => {
                   { ...values },
                   { timeout: 10000, timeoutErrorMessage: 'Network Error' },
                 );
+
                 auth.logIn(res.data);
                 history.push('/');
               } catch (e) {
-                if (e.request || (e.isAxiosError && e.message === 'Network Error')) {
+                if (e.response) {
+                  if (e.response.status === 401) {
+                    setError('authFailed');
+                    usernameRef.current.select();
+                  }
+                } else if (e.request) {
                   toast.error('Ошибка соединения');
-                } else if (e.isAxiosError && e.response.status === 401) {
-                  setError('authFailed');
-                  usernameRef.current.select();
                 } else {
+                  console.log('ERROR', e);
                   setError('unknown');
                 }
                 setSubmitting(false);
