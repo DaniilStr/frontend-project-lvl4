@@ -65,7 +65,7 @@ const Login = ({ toast }) => {
                     usernameRef.current.select();
                   }
                 } else if (e.request) {
-                  toast.error('Ошибка соединения');
+                  toast.error(t('errors.netError'));
                 } else {
                   console.log('ERROR', e);
                   setError('unknown');

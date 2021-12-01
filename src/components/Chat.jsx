@@ -35,11 +35,8 @@ const Chat = () => {
       const url = routes.data();
       try {
         const res = await axios.get(url, { headers: getAuthorizationHeader() });
-
         dispatch(setInitialState(res.data));
-
         socket.auth = { token: getToken() };
-
         setContentLoaded(true);
       } catch (e) {
         if (e.isAxiosError) {
