@@ -59,7 +59,6 @@ const Login = ({ toast }) => {
                 auth.logIn(res.data);
                 history.push('/');
               } catch (e) {
-                toast.error(t('errors.netError'));
                 if (e.response) {
                   if (e.response.status === 401) {
                     setError('authFailed');
