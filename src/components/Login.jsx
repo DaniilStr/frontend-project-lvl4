@@ -63,6 +63,8 @@ const Login = ({ toast }) => {
                   if (e.response.status === 401) {
                     setError('authFailed');
                     usernameRef.current.select();
+                  } else if (e.response.status === /^5../) {
+                    toast.error(t('errors.netError'));
                   }
                 } else if (e.request) {
                   toast.error(t('errors.netError'));
