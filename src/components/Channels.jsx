@@ -65,7 +65,7 @@ const Channels = () => {
     }
     container.setAttribute('aria-hidden', 'true');
     return () => container.removeAttribute('aria-hidden');
-  }, [isOpen]);
+  }, [isOpen, container]);
 
   const dispatch = useDispatch();
 
