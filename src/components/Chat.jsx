@@ -22,7 +22,7 @@ const getAuthorizationHeader = () => {
   return {};
 };
 
-const Chat = () => {
+const Chat = ({ toast }) => {
   const auth = useAuth();
   const dispatch = useDispatch();
   const socket = useSocket();
@@ -36,15 +36,16 @@ const Chat = () => {
       const res = await axios.get(url, { headers: getAuthorizationHeader() });
       dispatch(setInitialState(res.data));
       socket.auth = { token: getToken() };
+      setContentLoaded(true);
     } catch (e) {
       if (e.isAxiosError) {
+        toast.error(t('errors.netError'));
         auth.logOut();
         return;
       }
 
       throw e;
     }
-    setContentLoaded(true);
   }, []);
 
   return contentLoaded ? (

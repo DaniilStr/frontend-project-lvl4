@@ -78,7 +78,7 @@ const App = ({ socket }) => {
             <Navbar />
             <Switch>
               <PrivateRoute exact path="/">
-                <Chat />
+                <Chat toast={toast} />
               </PrivateRoute>
               <Route path="/login">
                 <Login toast={toast} />
