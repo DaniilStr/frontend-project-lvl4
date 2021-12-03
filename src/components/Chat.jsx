@@ -49,7 +49,7 @@ const Chat = ({ toast }) => {
         }
       };
       fetchData();
-    },
+    }, [auth, dispatch, socket, t, toast],
   );
 
   return contentLoaded ? (
