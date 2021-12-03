@@ -48,7 +48,7 @@ const Chat = ({ toast }) => {
       }
     };
     fetchData();
-  }, [auth, dispatch, socket, t, toast]);
+  }, []);
 
   return contentLoaded ? (
     <div className="container h-100 my-4 overflow-hidden rounded shadow">
