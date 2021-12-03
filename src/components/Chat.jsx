@@ -30,23 +30,25 @@ const Chat = ({ toast }) => {
 
   const [contentLoaded, setContentLoaded] = useState(false);
 
-  useEffect(async () => {
-    const url = routes.data();
-    try {
-      const res = await axios.get(url, { headers: getAuthorizationHeader() });
-      dispatch(setInitialState(res.data));
-      socket.auth = { token: getToken() };
-      setContentLoaded(true);
-    } catch (e) {
-      if (e.isAxiosError) {
-        toast.error(t('errors.netError'));
-        auth.logOut();
-        return;
+  useEffect(() => {
+    const fetchData = async () => {
+      const url = routes.data();
+      try {
+        const res = await axios.get(url, { headers: getAuthorizationHeader() });
+        dispatch(setInitialState(res.data));
+        socket.auth = { token: getToken() };
+        setContentLoaded(true);
+      } catch (e) {
+        if (e.isAxiosError) {
+          toast.error(t('errors.netError'));
+          auth.logOut();
+          return;
+        }
+        throw e;
       }
-
-      throw e;
-    }
-  }, []);
+    };
+    fetchData();
+  }, [auth, dispatch, socket, t, toast]);
 
   return contentLoaded ? (
     <div className="container h-100 my-4 overflow-hidden rounded shadow">
