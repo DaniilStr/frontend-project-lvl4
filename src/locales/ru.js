@@ -11,6 +11,7 @@ export default {
       channelManagement: 'Управление каналом',
       rename: 'Переименовать',
       remove: 'Удалить',
+      changeLanguage: 'Сменить язык',
     },
     buttons: {
       signUp: 'Зарегистрироваться',

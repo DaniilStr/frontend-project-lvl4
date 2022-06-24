@@ -1,9 +1,8 @@
-// @ts-check
-
 import 'core-js/stable/index.js';
 import 'regenerator-runtime/runtime.js';
 import React from 'react';
 import i18n from 'i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 import { Provider } from 'react-redux';
 import { io } from 'socket.io-client';
@@ -18,16 +17,12 @@ import {
 } from './slices/channelsInfoSlice.js';
 import { addMessage } from './slices/messagesInfoSlice.js';
 
-export default async (socketClient = io()) => {
+export default async (socket = io()) => {
   const i18nInstance = i18n.createInstance();
-  // const lng = localStorage.getItem('lang') || 'ru';
 
-  await i18nInstance.use(initReactI18next).init({
-    lng: 'ru',
+  await i18nInstance.use(LanguageDetector).use(initReactI18next).init({
     resources,
   });
-
-  const socket = socketClient;
 
   socket.on('newMessage', (message) => {
     store.dispatch(addMessage({ message }));

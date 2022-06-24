@@ -11,6 +11,7 @@ export default {
       channelManagement: 'Channel management',
       rename: 'Rename',
       remove: 'Remove',
+      changeLanguage: 'Change Language',
     },
     buttons: {
       signUp: 'Sign up',
