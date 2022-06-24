@@ -18,9 +18,10 @@ const MessagesBoxHeader = () => {
   const currentChannelMessages = messages.filter(
     ({ channelId }) => Number(channelId) === currentChannelId,
   );
-  const channelName = channels.filter(
+  const [{ name: channelName }] = channels.filter(
     ({ id }) => Number(id) === currentChannelId,
-  )[0].name;
+  );
+
   const amountOfMassages = currentChannelMessages.length;
 
   const { t } = useTranslation();
@@ -45,7 +46,7 @@ const MessagesBox = () => {
   const { messages } = useSelector((state) => state.messagesInfo);
 
   return (
-    <div id="messages-box" className="overflow-auto px-5">
+    <div id="messages-box" className="overflow-auto px-md-4 px-sm-1">
       {messages
         .filter(({ channelId }) => Number(channelId) === currentChannelId)
         .map(({ id, body, username }) => (
