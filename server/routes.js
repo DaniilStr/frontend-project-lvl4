@@ -1,5 +1,3 @@
-// @ts-check
-
 import _ from 'lodash';
 import HttpErrors from 'http-errors';
 
@@ -87,7 +85,7 @@ export default (app, defaultState = {}) => {
     });
   });
 
-  app.post('/api/v1/login', async (req, reply) => {
+  app.post('/api/login', async (req, reply) => {
     const username = _.get(req, 'body.username');
     const password = _.get(req, 'body.password');
     const user = state.users.find((u) => u.username === username);
@@ -101,7 +99,7 @@ export default (app, defaultState = {}) => {
     reply.send({ token, username });
   });
 
-  app.post('/api/v1/signup', async (req, reply) => {
+  app.post('/api/signup', async (req, reply) => {
     const username = _.get(req, 'body.username');
     const password = _.get(req, 'body.password');
     const user = state.users.find((u) => u.username === username);
@@ -120,7 +118,7 @@ export default (app, defaultState = {}) => {
       .send({ token, username });
   });
 
-  app.get('/api/v1/data', { preValidation: [app.authenticate] }, (req, reply) => {
+  app.get('/api/data', { preValidation: [app.authenticate] }, (req, reply) => {
     const user = state.users.find(({ id }) => id === req.user.userId);
 
     if (!user) {

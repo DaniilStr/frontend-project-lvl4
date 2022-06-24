@@ -1,10 +1,7 @@
-// @ts-check
-
-const host = '';
-const prefix = 'api/v1';
+const prefix = 'api';
 
 export default {
-  login: () => [host, prefix, 'login'].join('/'),
-  signup: () => [host, prefix, 'signup'].join('/'),
-  data: () => [host, prefix, 'data'].join('/'),
+  login: () => [prefix, 'login'].join('/'),
+  signup: () => [prefix, 'signup'].join('/'),
+  data: () => [prefix, 'data'].join('/'),
 };
